@@ -4,12 +4,12 @@
 #include "DHT.h"
 
 #define DHTPIN D4     // what pin we're connected to
-#define wifi_ssid "Iqbal Network"
-#define wifi_password "Murree_@54321"
+#define wifi_ssid "Your SSID name"
+#define wifi_password "Password"
 
-#define mqtt_server "13.72.106.172"  // MQTT Cloud address
-#define humidity_pub_topic "sf/BC-DD-C2-30-A3-5D/DTC/humidity/0"
-#define temperature_pub_topic "sf/BC-DD-C2-30-A3-5D/DTC/temperature/0"
+#define mqtt_server "broker.smartfactory.pk"  // Smart Factory Broker Server
+#define humidity_pub_topic "sf/MAC ADDRESS OF YOUR DEVICE/DTC*/humidity/0"   (*Device to Cloud)
+#define temperature_pub_topic "sf/MAC ADDRESS OF YOUR DEVICE/DTC*/temperature/0"
 
 #define DHTTYPE DHT11   // DHT 11
 
@@ -37,7 +37,7 @@ void reconnect() {
     // Loop until we're reconnected
     while (!client.connected()) {
         Serial.print("Attempting MQTT connection...\n");
-        if (client.connect("BC-DD-C2-30-A3-5D")) {
+        if (client.connect("MAC ADDRESS OF YOUR DEVICE")) {
             Serial.println("connected!");
         } else {
             Serial.print("failed, rc=");
